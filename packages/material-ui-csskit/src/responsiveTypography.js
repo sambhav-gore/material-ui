@@ -9,21 +9,20 @@ export default function responsiveTypography(theme, { minFontSize, scale, ...oth
   const output = theme;
   output.typography = { ...theme.typography };
 
-  // TODO: use allVariants
   [
+    'body2',
+    'body1',
+    'caption',
+    'button',
     'h1',
     'h2',
     'h3',
     'h4',
     'h5',
     'h6',
-    // 'subtitle1',
-    // 'subtitle2',
-    // 'body1',
-    // 'body2',
-    // 'buttonNext',
-    // 'captionNext',
-    // 'overline',
+    'subtitle1',
+    'subtitle2',
+    'overline',
   ].forEach(variant => {
     const style = output.typography[variant];
     const pixelFontSize = remToPx(style.fontSize);
