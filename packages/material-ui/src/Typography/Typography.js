@@ -5,37 +5,32 @@ import { componentPropType } from '@material-ui/utils';
 import withStyles from '../styles/withStyles';
 import { capitalize } from '../utils/helpers';
 
+const allVariants = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'subtitle1',
+  'subtitle2',
+  'body1',
+  'body2',
+  'caption',
+  'button',
+  'overline',
+];
+
+/* styles of variants in theme.typography */
+const typographyStyles = theme =>
+  allVariants.reduce((newObj, x) => Object.assign(newObj, { [x]: theme.typography[x] }), {});
+
 export const styles = theme => ({
   /* Styles applied to the root element. */
   root: {
     margin: 0,
   },
-  /* Styles applied to the root element if `variant="body2"`. */
-  body2: theme.typography.body2,
-  /* Styles applied to the root element if `variant="body1"`. */
-  body1: theme.typography.body1,
-  /* Styles applied to the root element if `variant="caption"`. */
-  caption: theme.typography.caption,
-  /* Styles applied to the root element if `variant="button"`. */
-  button: theme.typography.button,
-  /* Styles applied to the root element if `variant="h1"`. */
-  h1: theme.typography.h1,
-  /* Styles applied to the root element if `variant="h2"`. */
-  h2: theme.typography.h2,
-  /* Styles applied to the root element if `variant="h3"`. */
-  h3: theme.typography.h3,
-  /* Styles applied to the root element if `variant="h4"`. */
-  h4: theme.typography.h4,
-  /* Styles applied to the root element if `variant="h5"`. */
-  h5: theme.typography.h5,
-  /* Styles applied to the root element if `variant="h6"`. */
-  h6: theme.typography.h6,
-  /* Styles applied to the root element if `variant="subtitle1"`. */
-  subtitle1: theme.typography.subtitle1,
-  /* Styles applied to the root element if `variant="subtitle2"`. */
-  subtitle2: theme.typography.subtitle2,
-  /* Styles applied to the root element if `variant="overline"`. */
-  overline: theme.typography.overline,
+  ...typographyStyles(theme),
   /* Styles applied to the root element if `variant="srOnly"`. Only accessible to screen readers. */
   srOnly: {
     position: 'absolute',
@@ -258,4 +253,5 @@ Typography.defaultProps = {
   variantMapping: defaultVariantMapping,
 };
 
+export { allVariants };
 export default withStyles(styles, { name: 'MuiTypography', withTheme: true })(Typography);

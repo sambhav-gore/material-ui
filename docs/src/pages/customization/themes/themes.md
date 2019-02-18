@@ -289,6 +289,12 @@ html {
 
 {{"demo": "pages/customization/themes/FontSizeTheme.js"}}
 
+#### Responsive fonts
+
+You can use the new "@material-ui/csskit" that at the moment contains a helper function to configure Typography with responsive fonts.
+
+{{"demo": "pages/customization/themes/ResponsiveFonts.js", "hideEditButton": true}}
+
 ### Spacing
 
 We encourage you to use the `theme.spacing()` helper to create consistent spacing between the elements of your UI.
