@@ -3,11 +3,11 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { responsiveTypography } from '@material-ui/csskit';
 import Typography from '@material-ui/core/Typography';
 
-const defaultTheme = createMuiTheme({});
+const mobileTheme = createMuiTheme({});
 
-const theme = responsiveTypography(defaultTheme, {
-  minFontSize: 14,
-  scale: 0.7,
+const theme = responsiveTypography(mobileTheme, {
+  maxScale: 2.0,
+  breakpoints: ['sm', 'lg'],
 });
 
 function ResponsiveTheme() {
