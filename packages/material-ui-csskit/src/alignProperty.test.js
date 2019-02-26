@@ -12,9 +12,13 @@ describe('alignProperty', () => {
   ];
 
   tests.forEach(test => {
-    it(`Aligns ${test.args.length} on grid ${test.args.grid}`, () => {
-      const lengthAligned = alignProperty({ length: test.args.length, grid: test.args.grid });
-      assert.strictEqual(lengthAligned, test.expected);
+    const {
+      args: { length, grid },
+      expected,
+    } = test;
+    it(`Aligns ${length} on grid ${grid}`, () => {
+      const lengthAligned = alignProperty({ length, grid });
+      assert.strictEqual(lengthAligned, expected);
     });
   });
 });
