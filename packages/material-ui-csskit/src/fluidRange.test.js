@@ -1,8 +1,23 @@
 import { assert } from 'chai';
 import fluidRange from './fluidRange';
 
+/// COMMENT: Test pattern should follow following structure:
+/*
+    decribe("[function name]", () => {
+      describe("When [Condition]", () => {
+        it("should do/return/perform/action something", () => {
+           ASSERTS.
+        })
+      })
+    })
+*/
+
 describe('fluidRange', () => {
+  /// COMMENT: by convention, tests should begin with "Should"
+  /// example : it("should respond with reponsive font in pixel")
   it('Typical responsive font, in pixels', () => {
+
+    /// COMMENT: By convention - rename this to mockedFontStyle Or Mocks.responsiveFontStyle (avoid name 'correct')
     const correctFontStyle = {
       fontSize: '15px',
       '@media (min-width:300px)': {
@@ -12,6 +27,8 @@ describe('fluidRange', () => {
         fontSize: '20px',
       },
     };
+
+    /// COMMENT: By convention call this 'result' (const result = fluidRange ...)
     const testFontStyle = fluidRange({
       cssProperty: 'fontSize',
       min: 15,

@@ -15,13 +15,15 @@ import alignProperty from './alignProperty';
  * @returns responsive styles for {cssProperty}
  */
 
+ /// COMMENT can we get a better descriptive name than 'fluidRange'? What does this function actually do? 
+ /// 'getResponsiveStyles' is a better suited name IMO.
 export default function fluidRange({
   cssProperty,
   min,
   max,
   unit = 'rem',
-  range = [400, 960],
-  alignStep = null,
+  range = [400, 960],  /// COMMENT: Calling this 'range' is confusing. Can we rename to breakpointValues? 
+  alignStep = null, /// COMMENT: ???
 }) {
   const factor = (max - min) / range[range.length - 1];
 
@@ -32,6 +34,7 @@ export default function fluidRange({
   range.forEach(value => {
     let length = min + factor * value;
 
+    /// COMMENT - this could also be undefined ?
     if (alignStep !== null) {
       length = alignProperty(length, alignStep);
     }
